@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Generated files
+*.cache
+*.tmp
+
+# RAG generated data
+data/indexes/
+data/vectorstore/
+data/embeddings/
+
+# Model files
+*.bin
+*.pt
+*.pth
+*.onnx
+
+# Assignment reference files
+Aptino_AI_Engineer_Take_Home_Assignment_FINAL.docx
+PACKAGE_CONTENTS.md
+
+# Aptino supplied materials
+candidate_data/
+policy/
+schema/
