@@ -84,13 +84,27 @@ The supplied policy PDF is indexed into meaningful chunks with traceability meta
 
 Retrieval is hybrid:
 
-- dense semantic retrieval using sentence-transformers / FAISS
+- dense retrieval
 - sparse lexical retrieval using BM25
-- fusion of dense and sparse candidates
+- Reciprocal Rank Fusion (RRF)
 - reranking before evidence reaches downstream reasoning agents
 
-Citation records retain source/page/section/chunk information so decisions can be traced back to the policy.
+### Retrieval backends
 
+The repository supports two retrieval modes.
+
+**Local/full mode**
+
+```text
+SentenceTransformer embeddings
+        ↓
+FAISS dense retrieval
+        +
+BM25 sparse retrieval
+        ↓
+Reciprocal Rank Fusion
+        ↓
+CrossEncoder reranking
 ## Decision contract
 
 Supported decisions:
@@ -185,6 +199,16 @@ Example:
 
 The above case intentionally leaves hospital eligibility and medical necessity unresolved and should abstain with `NEEDS_REVIEW`.
 
+## Live Demo
+
+The deployed application is available here:
+
+- **Streamlit reviewer UI:** https://policy-claim-ui.onrender.com
+- **FastAPI backend:** https://policy-claim-api.onrender.com
+- **Swagger API documentation:** https://policy-claim-api.onrender.com/docs
+
+The Streamlit UI communicates with the deployed FastAPI backend through the `API_URL` environment variable.
+
 ## Streamlit frontend
 
 Start locally:
@@ -252,6 +276,17 @@ Run the automated tests with:
 python -m pytest -q
 ```
 
+### Evaluation reproducibility
+
+The evaluation suite includes both the supplied public cases and independently created candidate cases:
+
+```text
+12 supplied public cases
++
+7 candidate-created cases
+=
+19 total evaluation cases
+
 ## Development failure analysis
 
 Three important development failures were identified and corrected:
@@ -296,20 +331,33 @@ For a clean environment, use Python 3.10+ and a virtual environment.
 
 ## Deployment
 
-The recommended deployment uses two web services from the same repository:
+The application is deployed as two Render web services from the same repository:
 
-- FastAPI backend
-- Streamlit frontend
+1. **FastAPI backend** — policy claim analysis API
+2. **Streamlit frontend** — reviewer-facing claim analysis interface
 
-The frontend receives the deployed backend URL through the `API_URL` environment variable. Do not hardcode credentials or API keys.
+The Render Blueprint is defined in `render.yaml`.
 
-See `render.yaml` for the Render Blueprint configuration.
+### Deployed services
+
+```text
+Streamlit UI
+    https://policy-claim-ui.onrender.com
+              │
+              │ API_URL
+              ▼
+FastAPI API
+    https://policy-claim-api.onrender.com
+              │
+              ▼
+Multi-agent claim analysis workflow
 
 ## Security and configuration
 
 - Do not commit `.env` files, credentials, or API keys.
 - Use environment variables for deployment configuration.
-- Candidate data and supplied policy materials are kept separate from source code according to the repository's `.gitignore` policy.
+- Candidate-created evaluation cases are included in `candidate_data/` for reproducibility and reviewer inspection.
+- Supplied/private policy and schema materials remain excluded according to the repository's `.gitignore` policy.
 - The application exposes concise auditable traces rather than hidden chain-of-thought.
 
 ## Known limitations
