@@ -15,4 +15,7 @@ services:
     startCommand: streamlit run src/streamlit_app.py --server.address 0.0.0.0 --server.port $PORT --server.headless true
     envVars:
       - key: API_URL
-        sync: false
+        fromService:
+          name: policy-claim-api
+          type: web
+          envVarKey: RENDER_EXTERNAL_URL
