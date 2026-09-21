@@ -50,7 +50,24 @@ LIGHTWEIGHT_MODE = DEPLOYMENT_MODE in {"lightweight", "render", "production"}
 class HybridRetriever:
     """BM25 + dense retrieval + RRF + reranking."""
 
+    _instance = None
 
+    @classmethod
+    def get_instance(
+        cls,
+        chunks_path: Path = CHUNKS_PATH,
+        embedding_model_name: str = EMBEDDING_MODEL,
+        reranker_model_name: str = RERANKER_MODEL,
+    ):
+        """Return a shared retriever instance."""
+        if cls._instance is None:
+            cls._instance = cls(
+                chunks_path=chunks_path,
+                embedding_model_name=embedding_model_name,
+                reranker_model_name=reranker_model_name,
+            )
+
+        return cls._instance
     def __init__(
         self,
         chunks_path: Path = CHUNKS_PATH,
