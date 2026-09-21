@@ -1,0 +1,174 @@
+[
+  {
+    "case_id": "CAND-001",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-15",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 72,
+    "condition": "acute bacterial infection",
+    "procedure": "medical treatment",
+    "network_hospital": true,
+    "sum_insured_inr": 500000,
+    "expenses": {
+      "room": 12000,
+      "doctor_fees": 25000,
+      "medicines_diagnostics": 50000,
+      "ambulance": 500
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": true
+    },
+    "expected_decision": "ADMISSIBLE_WITH_LIMITS",
+    "scenario": "Standard eligible hospitalization with applicable expense limits"
+  },
+  {
+    "case_id": "CAND-002",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-16",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 72,
+    "condition": "acute infection",
+    "procedure": "medical treatment",
+    "network_hospital": false,
+    "sum_insured_inr": 500000,
+    "expenses": {
+      "room": 10000,
+      "doctor_fees": 20000,
+      "medicines_diagnostics": 40000
+    },
+    "evidence_context": {
+      "hospital_registered": null,
+      "hospital_minimum_criteria_documented": false,
+      "medical_necessity_confirmed": null
+    },
+    "expected_decision": "NEEDS_REVIEW",
+    "scenario": "Hospital eligibility cannot be established from available evidence"
+  },
+  {
+    "case_id": "CAND-003",
+    "policy_start_date": "2026-09-01",
+    "claim_date": "2026-09-15",
+    "months_covered": 0,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 72,
+    "condition": "acute fever",
+    "procedure": "medical treatment",
+    "network_hospital": true,
+    "sum_insured_inr": 500000,
+    "expenses": {
+      "room": 8000,
+      "doctor_fees": 15000,
+      "medicines_diagnostics": 20000
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": true
+    },
+    "expected_decision": "NOT_ADMISSIBLE",
+    "scenario": "Claim falls within initial 30-day waiting period"
+  },
+  {
+    "case_id": "CAND-004",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-17",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 48,
+    "condition": "cosmetic appearance concern",
+    "procedure": "cosmetic surgery",
+    "network_hospital": true,
+    "sum_insured_inr": 500000,
+    "expenses": {
+      "room": 15000,
+      "doctor_fees": 100000,
+      "medicines_diagnostics": 50000
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": false
+    },
+    "expected_decision": "NOT_ADMISSIBLE",
+    "scenario": "Cosmetic treatment exclusion"
+  },
+  {
+    "case_id": "CAND-005",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-18",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 96,
+    "condition": "acute appendicitis",
+    "procedure": "appendectomy",
+    "network_hospital": true,
+    "sum_insured_inr": 500000,
+    "expenses": {
+      "room": 30000,
+      "doctor_fees": 20000,
+      "medicines_diagnostics": 300000,
+      "ambulance": 1500,
+      "pre_hospitalization": 5000,
+      "post_hospitalization": 7000
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": true,
+      "pre_post_same_condition_confirmed": true
+    },
+    "expected_decision": "ADMISSIBLE_WITH_LIMITS",
+    "scenario": "Multiple category-specific expense limits"
+  },
+  {
+    "case_id": "CAND-006",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-19",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 72,
+    "condition": "experimental neurological condition",
+    "procedure": "experimental gene therapy",
+    "network_hospital": true,
+    "sum_insured_inr": 1000000,
+    "expenses": {
+      "room": 20000,
+      "doctor_fees": 100000,
+      "medicines_diagnostics": 300000
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": true,
+      "experimental": true
+    },
+    "expected_decision": "NOT_ADMISSIBLE",
+    "scenario": "Experimental or unproven treatment exclusion"
+  },
+  {
+    "case_id": "CAND-007",
+    "policy_start_date": "2024-01-01",
+    "claim_date": "2026-09-20",
+    "months_covered": 32,
+    "hospitalization_type": "inpatient",
+    "hospitalization_hours": 72,
+    "condition": "acute appendicitis",
+    "procedure": "appendectomy",
+    "network_hospital": true,
+    "sum_insured_inr": 500000,
+    "claimant_age": 43,
+    "claimant_occupation": "software engineer",
+    "claimant_city": "Pune",
+    "irrelevant_attribute": "vegetarian",
+    "expenses": {
+      "room": 10000,
+      "doctor_fees": 25000,
+      "medicines_diagnostics": 50000
+    },
+    "evidence_context": {
+      "hospital_registered": true,
+      "medical_necessity_confirmed": true
+    },
+    "expected_decision": "ADMISSIBLE_WITH_LIMITS",
+    "scenario": "Irrelevant claimant attributes should not influence policy decision"
+  }
+]
