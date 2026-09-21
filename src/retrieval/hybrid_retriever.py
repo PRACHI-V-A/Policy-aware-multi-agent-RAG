@@ -50,6 +50,7 @@ LIGHTWEIGHT_MODE = DEPLOYMENT_MODE in {"lightweight", "render", "production"}
 class HybridRetriever:
     """BM25 + dense retrieval + RRF + reranking."""
 
+
     def __init__(
         self,
         chunks_path: Path = CHUNKS_PATH,
@@ -240,7 +241,12 @@ class HybridRetriever:
                 for index in ranked_indices[:top_k]
             ]
 
-            return indices, scores
+            selected_scores = np.asarray(
+                [scores[index] for index in indices],
+                dtype="float32",
+            )
+
+            return indices, selected_scores
 
         query_embedding = self.embedding_model.encode(
             [query],
