@@ -1,0 +1,85 @@
+{
+  "total_cases": 12,
+  "decision_counts": {
+    "ADMISSIBLE_WITH_LIMITS": 6,
+    "NOT_ADMISSIBLE": 4,
+    "NEEDS_REVIEW": 2
+  },
+  "validation_counts": {
+    "PASS": 12
+  },
+  "results": [
+    {
+      "case_id": "PUB-001",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-002",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-003",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-004",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-005",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-006",
+      "decision": "NEEDS_REVIEW",
+      "confidence": 0.45,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-007",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-008",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-009",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-010",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-011",
+      "decision": "NEEDS_REVIEW",
+      "confidence": 0.45,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "PUB-012",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    }
+  ]
+}

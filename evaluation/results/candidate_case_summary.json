@@ -1,0 +1,55 @@
+{
+  "total_cases": 7,
+  "decision_counts": {
+    "ADMISSIBLE_WITH_LIMITS": 3,
+    "NEEDS_REVIEW": 1,
+    "NOT_ADMISSIBLE": 3
+  },
+  "validation_counts": {
+    "PASS": 7
+  },
+  "results": [
+    {
+      "case_id": "CAND-001",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-002",
+      "decision": "NEEDS_REVIEW",
+      "confidence": 0.45,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-003",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-004",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-005",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-006",
+      "decision": "NOT_ADMISSIBLE",
+      "confidence": 0.9,
+      "validation_status": "PASS"
+    },
+    {
+      "case_id": "CAND-007",
+      "decision": "ADMISSIBLE_WITH_LIMITS",
+      "confidence": 0.82,
+      "validation_status": "PASS"
+    }
+  ]
+}

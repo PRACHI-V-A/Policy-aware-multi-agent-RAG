@@ -11,3 +11,28 @@ sentence-transformers
 faiss-cpu
 rank-bm25
 langgraph
+
+fastapi
+uvicorn
+streamlit
+pydantic
+python-dotenv
+
+# PDF processing
+pymupdf
+
+# Data processing
+pandas
+numpy
+
+# ML / retrieval
+scikit-learn
+sentence-transformers
+faiss-cpu
+rank-bm25
+
+# Multi-agent orchestration
+langgraph
+
+# API testing
+httpx
